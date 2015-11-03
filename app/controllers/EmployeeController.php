@@ -4,7 +4,7 @@ namespace controllers;
 
 class EmployeeController extends ControllerBase
 {   
-    public function viewShiftsForWeek()
+    public function viewShifts($employeeId)
     {
         if ($this->validateGetRequest())
         {
@@ -14,17 +14,24 @@ class EmployeeController extends ControllerBase
         
     }
 
-    private function viewShiftsForWeeksFullUrl()
-    {
-        
-    }
-
-    public function viewWeekSummary()
+    public function viewFullShift($shiftId)
     {
         if ($this->validateGetRequest())
         {
             return "Access Denied: Incorrect method type.";
         }
+
+        
+    }
+
+    public function viewWeekSummary($week)
+    {
+        if ($this->validateGetRequest())
+        {
+            return "Access Denied: Incorrect method type.";
+        }
+
+           
     }
 
     public function viewManagerDetailsForShift()

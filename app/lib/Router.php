@@ -32,11 +32,18 @@ class Router
     private function routeEmployeeCall()
     {
         $controller = new \controllers\EmployeeController($this->request);
-         $this->request->getUrlElements();
+        $parameters = $this->request->getUrlElements();
         
-        if (method_exists($controller, $method))
-        {
-            
+        if (count($parameters) < 2) {
+            if ($parameters[2] == 'shift') {
+                $controller->viewFullShift($parameters[3]);
+            }
+            else {
+                $controller->viewWeekSummary($parameters[4]);
+            }
+        }
+        else {
+            return $controller->viewShifts($parameters[1]);
         }
     }
 
